@@ -1,0 +1,43 @@
+{% extends "Users/base_users.html" %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style-signup.css' %}">
+{% endblock css %}
+
+{% block title %}
+Registrate
+{% endblock title %}
+
+{% block content %}
+{% include 'includes/header_login_signup.html' %}
+
+<section class="login">
+    <figure class="login__picture">
+        <img src="{% static 'img/imglogin.svg' %}" alt="Imagen del login" class="login__img">
+    </figure>
+
+    <form class="login__form" method="post" enctype="multipart/form-data">{% csrf_token %}
+        <h2 class="login__title title">Registrate</h2>
+        {{form.name}}
+        {{form.last_name}}
+        {{form.email}}
+        <p>Eres una fundación? {{form.is_foundation}}</p>
+        {{ form.genero }}
+        <p>Ingresa tu fecha de nacimiento</p>
+        {{ form.date_birth }}
+        {{ form.password1 }}
+        {{ form.password2 }}
+
+        <div class="login__btn">
+            <button type="submit" class="login__cta">Registrarse</button>
+            <p class="login__text">Ya tienes una cuenta? </p>
+            <a href="{% url 'Users_app:user-login' %}" class="login__singup">Inicia sesión</a>
+        </div>
+
+
+    </form>
+</section>
+
+{% endblock content %}

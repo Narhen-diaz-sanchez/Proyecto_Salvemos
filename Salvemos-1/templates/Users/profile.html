@@ -1,0 +1,56 @@
+{% extends "Posts/base_posts.html" %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style-profile.css' %}">
+<script src="https://kit.fontawesome.com/b814c54e34.js" crossorigin="anonymous"></script>
+{% endblock css %}
+
+{% block title %}
+Nuevo Post
+{% endblock title %}
+
+{% block content %}
+{% include 'includes/header_posts.html' %}
+
+<section class="container">
+    <div class="perfil">
+        <div class="card">
+            <h2 class="card_title">{{user.name}} {{user.last_name}}</h2>
+            <h3 class="card_text">{{user.email}}</h3>
+            <h3 class="card_text">{{user.date_birth}}</h3>
+            <a href="{% url 'Users_app:user-update' %}" class="cta">Cambiar contraseña</a>
+        </div>
+    </div>
+    <div class="titlefavorite">
+        <h2 class="card_title">Mis favoritos</h2>
+        <div class="containerfavoritos">
+
+            {% for favorito in profileuser %}
+            <div class="feed__item">
+                <div class="feed__figure">
+                    <img src="{{favorito.post.image.url}}" class="feed__img">
+                </div>
+                <div class="feed__texts">
+                    <h2 class="feed__title">{{favorito.post.title}}</h2>
+                    <p class="feed__paragraph">{{favorito.post.resume}}</p>
+                    <form action="{% url 'Users_app:deletefavorito' favorito.id %}" method="post">{% csrf_token %}
+                        <a href="{% url 'Posts_app:Post-detail' favorito.post.slug %}" class="cta cta_card">Ver</a>
+                        <button type="submit" class="cta cta_card cta_eliminar">Eliminar</button>
+                    </form>
+                </div>
+            </div>
+            {%empty%}
+            <h3>No tienes favoritos</h3>
+            {% endfor %}
+
+        </div>
+    </div>
+
+
+</section>
+
+
+{% include 'includes/footer.html' %}
+{% endblock content %}

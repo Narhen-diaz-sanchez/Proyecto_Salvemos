@@ -1,0 +1,80 @@
+{% extends "Posts/base_posts.html" %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style-feed.css' %}">
+<script src="https://kit.fontawesome.com/b814c54e34.js" crossorigin="anonymous"></script>
+{% endblock css %}
+
+{% block title %}
+Mascotas
+{% endblock title %}
+
+{% block content %}
+{% include 'includes/header_posts.html' %}
+<section class="feed container">
+    <div class="buscador">
+        <form method="get">{% csrf_token %}
+            <div class="busc">
+                <input type="text" name="kword" id="kword" class="barrabuscar" placeholder="Busca un post">
+                <button type="submit" class="cta cta2">Buscar</button>
+            </div>
+
+            <div class="buscador">
+                <h2>Filtra por categoria</h2>
+                {% for categoria in categorias %}
+                <a class="categoria" href="?categoria={{categoria.name}}">{{categoria.name}} | </a>
+                {% endfor %}
+        </form>
+    </div>
+
+    </div>
+
+    <div class="feed__grid">
+        {% for post in Posts %}
+        <div class="feed__item">
+            <div class="feed__figure">
+                <img src="{{post.image.url}}" class="feed__img">
+            </div>
+            <div class="feed__texts">
+                <h2 class="feed__title">{{post.title}}</h2>
+                <h4 class="feed__paragraph resume">{{post.resume | truncatechars:40}}</h4>
+                <p class="feed__paragraph content">{{post.content | truncatechars:100 | safe}}</p>
+            </div>
+            <a href="{% url 'Posts_app:Post-detail' post.slug %}" class="cta">Ver más</a>
+        </div>
+        {% empty %}
+        <h3>Sin resultados</h3>
+        {% endfor %}
+    </div>
+
+
+    {% if is_paginated %}
+    </div>
+    <h2 class="listpagetitle">Página</h2>
+    <ul class="pagination">
+
+        {% if page_obj.has_previous %}
+        <li><a href="?page={{page_obj.previous_page_number}}">«</a></li>
+        {% endif %}
+
+        {% for pagina in paginator.page_range %}
+
+        {% if pagina == page_obj.number  %}
+        <li><a class="active" href="#">{{pagina}}</a></li>
+        {% else %}
+        <li><a href="?page={{pagina}}">{{pagina}}</a></li>
+        {% endif %}
+
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+        <li><a href="?page={{page_obj.next_page_number}}">»</a></li>
+        {% endif %}
+    </ul>
+    </div>
+    {% endif %}
+</section>
+{% include 'includes/footer.html' %}
+{% endblock content %}

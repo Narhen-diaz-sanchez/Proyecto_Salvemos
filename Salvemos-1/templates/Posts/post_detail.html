@@ -1,0 +1,36 @@
+{% extends "Posts/base_posts.html" %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style-post_detail.css' %}">
+<script src="https://kit.fontawesome.com/b814c54e34.js" crossorigin="anonymous"></script>
+{% endblock css %}
+
+{% block title %}
+Nuevo Post
+{% endblock title %}
+
+{% block content %}
+{% include 'includes/header_posts.html' %}
+<section class="detail__main container">
+    <div class="detail__texts">
+        <h1 class="detail__title">{{object.title}}</h1>
+        <h2 class="detail__paragraph">{{object.category}}</h2>
+        <h2 class="detail__paragraph">{{object.resume}}</h2>
+        <p>{{object.content | safe}}</p>
+
+    </div>
+    <div class="detail__aside">
+        <figure class="detail__picture">
+            <img src="{{object.image.url}}" alt="" class="detail__img">
+        </figure>
+        <form action="{% url 'Users_app:addfavorito' posts.id %}" method="post">{% csrf_token %}
+            <button type="submit" class="cta">Agregar a favoritos</button>
+        </form>
+
+    </div>
+
+</section>
+{% include 'includes/footer.html' %}
+{% endblock content %}

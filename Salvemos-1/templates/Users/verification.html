@@ -1,0 +1,32 @@
+{% extends "Users/base_users.html" %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style-signup.css' %}">
+{% endblock css %}
+
+{% block title %}
+Registrate
+{% endblock title %}
+
+{% block content %}
+{% include 'includes/header_login_signup.html' %}
+
+<section class="login">
+    <figure class="login__picture">
+        <img src="{% static 'img/imgconfirmationcode.svg' %}" alt="Imagen del login" class="login__img">
+    </figure>
+
+    <form class="login__form" method="post">{% csrf_token %}
+        <h2 class="login__title title">Ingresa tu código de registro</h2>
+        {{form.codregistro}}
+        <div class="login__btn">
+            <button type="submit" class="login__cta">Activa tu cuenta</button>
+        </div>
+
+
+    </form>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,512 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,200;0,300;0,400;1,400&display=swap');
+
+/* Archivos de estilos para el index rgb(255, 192, 116)*/
+:root {
+    --color1: rgb(1, 147, 124);
+    --color2: rgb(146, 167, 54);
+    --color3: rgb(187, 220, 47);
+    --fondo: #f2f2f2;
+    --titulos: 3rem;
+    --subtitulos: 1.5rem;
+    --margenes: 60px;
+    --espacios: 10px;
+    --espacios-contenido: 45px;
+    --txt-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Kanit', sans-serif;
+    background: var(--fondo);
+}
+
+img {
+    vertical-align: top;
+}
+
+/*Preloader*/
+.hidden {
+    overflow: hidden;
+}
+
+.centrado {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.lds-ellipsis div {
+    position: absolute;
+    top: 33px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #cef;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.lds-ellipsis div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+}
+
+@keyframes lds-ellipsis1 {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes lds-ellipsis3 {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes lds-ellipsis2 {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(24px, 0);
+    }
+}
+
+/* Header */
+
+header {
+    width: 100%;
+    height: 600px;
+    background: linear-gradient(to bottom,
+            rgba(248, 176, 69, 0.466),
+            rgba(69, 230, 155, 0.479),
+            rgb(1, 147, 124, .4)), url(../img/mascota2.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+nav {
+    width: 100%;
+    position: fixed;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
+}
+
+.nav1 {
+    background: transparent;
+    height: 80px;
+    color: #fff;
+}
+
+.nav2 {
+    background: var(--fondo);
+    height: 100px;
+    color: #000;
+}
+
+.contenedor-nav {
+    display: flex;
+    margin: auto;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    /* max-width: 1000px; */
+    height: inherit;
+    overflow: hidden;
+}
+
+nav .enlaces a {
+    display: inline-block;
+    padding: 5px 0;
+    margin-right: 17px;
+    font-size: 17px;
+    font-weight: 300;
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    color: inherit
+}
+
+nav .enlaces a:hover {
+    border-bottom: 3px solid #0CEEE6;
+    transition: 0.6s;
+}
+
+.logo,
+.logo img {
+    height: 70px;
+}
+
+.icono {
+    display: none;
+    font-size: 24px;
+    padding: 23.5px 20px;
+}
+
+.textos {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: #000;
+    overflow: hidden;
+    text-align: center;
+}
+
+
+.textos>h1 {
+    font-size: 80px;
+    ;
+}
+
+.textos>h2 {
+    font-size: 30px;
+    font-weight: 300;
+}
+
+/* Main */
+
+.contenedor {
+    margin: auto;
+    padding: var(--margenes) 0;
+    width: 90%;
+    max-width: 1000px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.contenedor h3 {
+    font-size: 3rem;
+    color: var(--color1);
+    margin-bottom: var(--espacios);
+
+}
+
+.contenedor p {
+    font-size: var(--subtitulos);
+    color: var(--color3);
+
+}
+
+.after::after {
+    content: '';
+    display: block;
+    margin: auto;
+    margin-top: var(--espacios);
+    width: 100px;
+    height: 2px;
+    background: var(--color1);
+    margin-bottom: var(--espacios-contenido);
+}
+
+.card {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.content-card {
+    width: 31%;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
+    overflow: hidden;
+    height: 400px;
+}
+
+.people {
+    height: 80%;
+}
+
+.content-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.texto-team {
+    height: 20%;
+    width: 100%;
+    padding: var(--espacios) 0;
+}
+
+.about {
+    background: url(../img/mascota7.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    height: auto;
+    text-shadow: var(--txt-shadow);
+}
+
+.servicios {
+    display: flex;
+    color: #fff;
+    justify-content: space-between;
+    margin: auto;
+    flex-wrap: wrap;
+
+}
+
+.caja-servicios>h4 {
+    font-size: 2.5rem;
+    margin-bottom: var(--espacios);
+    color: var(--color1);
+    text-shadow: var(--txt-shadow);
+}
+
+.caja-servicios>p {
+    text-align: center;
+    color: var(--color3);
+    text-shadow: var(--txt-shadow);
+    font-size: var(--subtitulos);
+}
+
+.botones-work {
+    overflow: hidden;
+}
+
+.botones-work li {
+    display: inline-block;
+    text-align: center;
+    margin-left: var(--espacios);
+    margin-bottom: var(--espacios-contenido);
+    padding: 6px 12px;
+    border: 1px solid var(--color1);
+    list-style: none;
+    color: var(--color1);
+
+}
+
+.botones-work li:hover {
+    background-color: var(--color1);
+    color: #fff;
+    cursor: pointer;
+}
+
+.botones-work .active {
+    cursor: pointer;
+    background: var(--color1);
+    color: #fff;
+}
+
+.galeria-work {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.galeria-work .cont-work {
+    width: 31%;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
+    height: 300px;
+    overflow: hidden;
+    margin-bottom: var(--espacios-contenido);
+}
+
+.img-work {
+    height: 90%;
+    width: 100%;
+}
+
+.img-work img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.textos-work {
+    height: 10%;
+}
+
+.textos-work h4 {
+    list-style: 30px;
+    font-weight: bold;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.textos-work-link {
+    text-decoration: none;
+    list-style: 30px;
+    font-weight: bold;
+    color: black;
+}
+
+/* footer */
+
+footer {
+    background: url(../img/mascota8.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    height: auto;
+    ;
+}
+
+.marca-logo {
+    width: 40%;
+    margin: auto;
+    margin-bottom: var(--espacios);
+}
+
+.marca-logo img {
+    width: 30%;
+    ;
+}
+
+
+.footer__icon {
+    display: inline-block;
+    font-size: 2rem;
+    margin: 0 30px;
+    text-decoration: none;
+    color: var(--color2);
+    margin-bottom: 30px;
+    width: 60px;
+    height: 60px;
+    border: 1px solid;
+    border-radius: 50%;
+
+}
+
+.footer__icon.fab {
+    line-height: 60px;
+}
+
+.footer__icon:hover {
+    background: var(--color2);
+    color: #fff;
+    cursor: pointer;
+}
+
+.footer__link {
+    display: inline-block;
+    color: var(--color2);
+    margin-left: 0;
+    margin-bottom: 15px;
+}
+
+.footer__link:hover {
+    text-shadow: var(--txt-shadow);
+}
+
+.footer__copy {
+    text-shadow: var(--txt-shadow);
+}
+
+@media screen and (max-width: 700px) {
+    .nav2 {
+        color: #fff;
+    }
+
+    .icono {
+        display: block;
+        cursor: pointer;
+    }
+
+    .enlaces {
+        position: fixed;
+        top: 80px;
+        background: var(--color1);
+        left: 0;
+        height: 100%;
+        transition: 1s;
+        width: 0;
+        overflow: hidden;
+    }
+
+    .enlaces a {
+        display: block;
+        width: 100%;
+        height: 50px;
+        pad: 20px;
+        text-align: center;
+        background: var(--color1);
+        color: #fff;
+    }
+
+    .textos>h1 {
+        font-size: 70px;
+    }
+
+    .textos>h2 {
+        font-size: 35px;
+    }
+
+    .content-card {
+        width: 48%;
+        margin-bottom: var(--margenes);
+    }
+
+    :root {
+        --margenes: 30px;
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+    :root {
+        --espacios-contenido: 25px;
+    }
+
+    .content-card {
+        width: 90%;
+    }
+
+    .caja-servicios {
+        width: 90%;
+        margin-bottom: var(--margenes);
+    }
+
+    .cont-work {
+        width: 85%;
+    }
+
+    .iconos {
+        margin: auto;
+    }
+
+}

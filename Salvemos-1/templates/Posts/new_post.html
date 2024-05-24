@@ -1,0 +1,37 @@
+{% extends "Posts/base_posts.html" %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style-new_post.css' %}">
+{% endblock css %}
+
+{% block title %}
+Nuevo Post
+{% endblock title %}
+
+{% block content %}
+{% include 'includes/header_posts.html' %}
+<section class="newpost">
+    <figure class="newpost__picture">
+        <img src="{% static 'img/imgpost.svg' %}" alt="Imagen del new post" class="newpost__img">
+    </figure>
+
+    <figure class="newpost__picture2">
+        <img src="{% static 'img/imgpost2.svg' %}" alt="Imagen del new post" class="newpost__img">
+    </figure>
+
+    <form class="newpost__form" method="post" enctype="multipart/form-data">{% csrf_token %}
+        <h2 class="newpost__title title">Nuevo post</h2>
+        <h4>Nombre de la mascota</h4>{{form.title}}
+        <h4>Qué piensas hacer con tu peludo</h4>{{form.category}}
+        <h4>Danos un breve resumen</h4>{{form.resume}}
+        <h4>Sube una imagen de la mascota</h4>{{form.image}}
+        <h4>Ahora cuentanos todo acerca de la mascota</h4>{{form.content}}
+        {{form.media}}
+        <div class="newpost__btn">
+            <button type="submit" class="newpost__cta">Publicar</button>
+        </div>
+    </form>
+</section>
+{% endblock content %}

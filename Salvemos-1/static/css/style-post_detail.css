@@ -1,0 +1,283 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,200;0,300;0,400;1,400&display=swap");
+
+:root {
+  --titulos: 3rem;
+  --subtitulos: 2.3rem;
+  --textos: 1.5rem;
+  --color1: rgb(0, 161, 157);
+  --color2: rgb(255, 255, 255);
+  --colorf2: rgb(146, 167, 54);
+  --margenes: 60px;
+  --espacios: 10px;
+  --txt-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+body {
+  font-family: "Kanit", sans-serif;
+  margin: 0;
+  max-height: 100vh;
+}
+
+header {
+  width: 100%;
+}
+
+nav {
+  width: 100%;
+  position: fixed;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.nav1 {
+  background: var(--color1);
+  height: 80px;
+  color: white;
+}
+
+.contenedor-nav {
+  display: flex;
+  margin: auto;
+  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+  /* max-width: 1000px; */
+  height: inherit;
+  overflow: hidden;
+}
+
+nav .enlaces a {
+  display: inline-block;
+  padding: 5px 0;
+  margin-right: 17px;
+  font-size: 17px;
+  font-weight: 300;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  color: inherit;
+}
+
+nav .enlaces a:hover {
+  border-bottom: 3px solid #0ceee6;
+  transition: 0.6s;
+}
+
+.logo,
+.logo img {
+  height: 70px;
+}
+
+.icono {
+  display: none;
+  font-size: 24px;
+  padding: 23.5px 20px;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 150px 20px 0px 20px;
+  overflow: hidden;
+}
+
+.nav {
+  background: steelblue;
+  height: var(--heigth-nav);
+  color: white;
+}
+
+.nav__container {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__link {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 1em;
+}
+
+.detail__aside {
+  text-align: center;
+}
+
+.detail__main {
+  display: flex;
+  height: calc(100vh - var(--heigth-nav));
+  align-items: flex-start;
+  min-height: 600px;
+}
+
+.detail__texts {
+  flex: 1;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-left: 100px;
+}
+
+.detail__picture {
+  align-items: center;
+  flex: 1;
+}
+
+.detail__img {
+  width: 100%;
+  max-width: 450px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 25px;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.39);
+}
+
+.detail__title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.detail__paragraph {
+  margin-bottom: 20px;
+  /* font-size: 2rem; */
+}
+
+.cta {
+  background: steelblue;
+  display: inline-block;
+  padding: 15px 30px;
+  margin-top: 1.5em;
+  text-decoration: none;
+  border-radius: 6px;
+  color: white;
+}
+
+@media screen and (max-width: 800px) {
+  :root {
+    --height-nav: 100px;
+  }
+
+  .nav__container {
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .detail__main {
+    flex-direction: column;
+    padding: 40px 0;
+  }
+
+  .detail__picture {
+    order: -1;
+  }
+
+  .detail__img {
+    min-width: 380px;
+  }
+
+  .detail__texts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .detail__title {
+    font-size: 2.5rem;
+
+  }
+
+  .detail__paragraph {
+    font-size: 1rem;
+  }
+}
+
+/* footer */
+.footer__icon {
+  display: inline-block;
+  font-size: 2rem;
+  margin: 0 30px;
+  text-decoration: none;
+  color: var(--color1);
+  margin-bottom: 30px;
+  width: 60px;
+  height: 60px;
+  border: 1px solid;
+  border-radius: 50%;
+}
+
+.footer__icon.fab {
+  line-height: 60px;
+}
+
+.footer__icon:hover {
+  background: var(--color1);
+  color: #fff;
+  cursor: pointer;
+}
+
+.contenedor {
+  margin: auto;
+  padding: var(--margenes) 0;
+  width: 90%;
+  max-width: 1000px;
+  text-align: center;
+  overflow: hidden;
+}
+
+footer {
+  background: url(../img/mascota8.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  height: auto;
+}
+
+.marca-logo {
+  width: 40%;
+  margin: auto;
+  margin-bottom: var(--espacios);
+}
+
+.marca-logo img {
+  width: 30%;
+}
+
+.footer__icon {
+  display: inline-block;
+  font-size: 2rem;
+  margin: 0 30px;
+  text-decoration: none;
+  color: var(--color1);
+  margin-bottom: 30px;
+  width: 60px;
+  height: 60px;
+  border: 1px solid;
+  border-radius: 50%;
+}
+
+.footer__icon.fab {
+  line-height: 60px;
+}
+
+.footer__icon:hover {
+  background: var(--color1);
+  color: #fff;
+  cursor: pointer;
+}
+
+.footer__link {
+  display: inline-block;
+  color: var(--color1);
+  margin-left: 0;
+  margin-bottom: 15px;
+}
+
+.footer__link:hover {
+  text-shadow: var(--txt-shadow);
+}
+
+.footer__copy {
+  text-shadow: var(--txt-shadow);
+}

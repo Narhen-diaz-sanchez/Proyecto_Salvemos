@@ -1,0 +1,173 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salvemos</title>
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-index.css' %}">
+    <script src="https://kit.fontawesome.com/b814c54e34.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="hidden">
+    <div class="centrado" id="onload">
+        <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <header>
+        <nav id="nav" class="nav1">
+            <div class="contenedor-nav">
+                <div class="logo">
+                    <img src="{% static 'icons/004-pawprint.png' %}" alt="">
+                </div>
+                <div class="enlaces" id="enlaces">
+                    <a href="#" id="enlace-inicio" class="btn-header">Inicio</a>
+                    <a href="#" id="enlace-equipo" class="btn-header">Equipo</a>
+                    <a href="#" id="enlace-servicio" class="btn-header">Servicio</a>
+                    <a href="#" id="enlace-trabajo" class="btn-header">Trabajo</a>
+                    <a href="#" id="enlace-contacto" class="btn-header">Contacto</a>
+                    <a href="{% url 'Users_app:user-login' %}" class="btn-header">Ingresar</a>
+                    <a href="{% url 'Users_app:user-register' %}" class="btn-header">Registrarme</a>
+                </div>
+                <div class="icono" id="open">
+                    <span>&#9776;</span>
+                </div>
+            </div>
+        </nav>
+        <div class="textos">
+            <h1>Salvemos</h1>
+            <h2>Ayudando angelitos que no pueden hablar</h2>
+        </div>
+    </header>
+    <main>
+        <section class="team contenedor" id="equipo">
+            <h3>Nuestro equipo</h3>
+            <p class="after">Conoce a nuestro gran equipo</p>
+            <div class="card">
+                <div class="content-card">
+                    <div class="people">
+                        <img src="{% static 'img/equipotrabajo.jpg' %}" alt="imgequipotrabajo" width=100%>
+                    </div>
+                    <div class="texto-team">
+                        <h4>K</h4>
+                        <p>Me imagino que aqui va la descripcion</p>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <div class="people">
+                        <img src="{% static 'img/mascota2.jpg' %}" alt="mascota2" width=100%>
+                    </div>
+                    <div class="texto-team">
+                        <h4>M</h4>
+                        <p>Me imagino que aqui va la descripcion</p>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <div class="people">
+                        <img src="{% static 'img/mascota3.jpg' %}" alt="mascota3" width=100%>
+                    </div>
+                    <div class="texto-team">
+                        <h4>N</h4>
+                        <p>Me imagino que aqui va la descripcion</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about" id="servicio">
+            <div class="contenedor">
+                <h3>Nuestros servicios</h3>
+                <p class="after">Pequeños gestos <br> Grandes acciones</p>
+                <div class="servicios">
+                    <div class="caja-servicios">
+                        <img src="{% static 'icons/001-animal.png' %}" alt="">
+                        <h4>Dona</h4>
+                        <p>Puedes realizar donaciones <br> a la fundación que desees</p>
+                    </div>
+                    <div class="caja-servicios">
+                        <img src="{% static 'icons/002-pet-house.png' %}" alt="">
+                        <h4>Apadrina</h4>
+                        <p>Si no tienes espacio en tu <br> casa no te preocupes <br> apadrina una mascota y <br>
+                            nosotros nos encargarmos del resto</p>
+                    </div>
+                    <div class="caja-servicios">
+                        <img src="{% static 'icons/003-happy.png' %}" alt="">
+                        <h4>Adopta</h4>
+                        <p>Lleva a ese peludito que <br> tanto quieres a tu casa <br> para que la llene de amor</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="work contenedor" id="trabajo">
+            <h3>Nuestro trabajo</h3>
+            <p class="after">Hacemos grandes cosas</p>
+            <div class="botones-work">
+                <ul>
+                    <li class="filter active" data-nom bre="todos">Últimas publicaciones</li>
+                    <!-- <li class="filter" data-nombre="adoptar">Adopcion</li>
+                    <li class="filter" data-nombre="apadrinar">Apadrinar</li>
+                    <li class="filter" data-nombre="donar">Donar</li> -->
+                </ul>
+            </div>
+            <div class="galeria-work">
+
+                {% for post in post_adoptar %}
+
+                <div class="cont-work adoptar">
+                    <a class="textos-work-link" href="{% url 'Posts_app:Post-detail' post.id %}">
+                        <div class="img-work">
+                            <img src="{{ post.image.url }}" alt="" width=30%>
+                        </div>
+                        <div class="textos-work">
+                            <h4 class="title">{{post.title}}</h4>
+                        </div>
+                    </a>
+                </div>
+
+                {% endfor %}
+
+                {% for post in post_apadrinar %}
+                <div class="cont-work adoptar">
+                    <a class="textos-work-link" href="{% url 'Posts_app:Post-detail' post.id %}">
+                        <div class="img-work">
+                            <img src="{{ post.image.url }}" alt="" width=30%>
+                        </div>
+                        <div class="textos-work">
+                            <h4 class="title">{{post.title}}</h4>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+
+
+                {% for post in post_donar %}
+                <div class="cont-work adoptar">
+                    <a class="textos-work-link" href="{% url 'Posts_app:Post-detail' post.id %}">
+                        <div class="img-work">
+                            <img src="{{ post.image.url }}" alt="" width=30%>
+                        </div>
+                        <div class="textos-work">
+                            <h4 class="title">{{post.title}}</h4>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+
+            </div>
+        </section>
+    </main>
+    {% include 'includes/footer.html' %}
+
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/filtro.js' %}"></script>
+
+</body>
+
+</html>
